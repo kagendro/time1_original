@@ -4,28 +4,29 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Lens · Phoenix Framework</title>
+    <title>Timesheet · Phoenix Framework</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
   </head>
   <body>
     <div class="container">
       <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="col-4">
-          <a class="navbar-brand" href="#">Lens</a>
+          <a class="navbar-brand" href="#">Timesheet</a>
         </div>
         <div class="col-4">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">All Photos</a>
+	      <%= link( "Workers", to: Routes.worker_path(@conn, :index))%>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Your Photos</a>
+	    <li class="nav-item active">
+	      <%= link( "Create Task", to: Routes.task_path(@conn, :new))%> 
+	      
             </li>
           </ul>
         </div>
         <div class="col-4 text-light">
           <%= if @current_worker do %>
-            User: <%= @current_worker.name %>
+            Worker: <%= @current_worker.name %>
             (<%= link("Logout", to: Routes.session_path(@conn, :delete),
               method: :delete) %>)
           <% else %>

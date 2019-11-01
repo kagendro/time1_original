@@ -19,6 +19,7 @@ defmodule Time1Web.Router do
 
     get "/", PageController, :index
     resources "/workers", WorkerController
+    resources "/tasks", TaskController
     resources "/sessions", SessionController,
       only: [:new, :create, :delete], singleton: true
   end
