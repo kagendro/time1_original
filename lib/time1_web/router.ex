@@ -18,7 +18,7 @@ defmodule Time1Web.Router do
     pipe_through :browser
 
     get "/", PageController, :index
-    resources "/workers", UserController
+    resources "/workers", WorkerController
     resources "/sessions", SessionController,
       only: [:new, :create, :delete], singleton: true
   end
