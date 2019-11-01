@@ -6,7 +6,7 @@ defmodule Time1Web.SessionController do
   end
 
   def create(conn, %{"email" => email}) do
-    user = Time1.Users.get_user_by_email(email)
+    user = Time1.Workers.get_worker_by_email(email)
     if user do
       conn
       |> put_session(:user_id, user.id)
