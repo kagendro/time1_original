@@ -9,11 +9,11 @@
   </head>
   <body>
     <div class="container">
-      <nav class="navbar navbar-expand-sm navbar-light bg-white">
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="col-4">
           <a class="navbar-brand" href="#">Lens</a>
         </div>
-        <div class="col-8">
+        <div class="col-4">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
               <a class="nav-link" href="#">All Photos</a>
@@ -23,6 +23,16 @@
             </li>
           </ul>
         </div>
+        <div class="col-4 text-light">
+          <%= if @current_worker do %>
+            User: <%= @current_worker.name %>
+            (<%= link("Logout", to: Routes.session_path(@conn, :delete),
+              method: :delete) %>)
+          <% else %>
+            <%= link("Login", to: Routes.session_path(@conn, :new)) %>
+          <% end %>
+        </div>
+
       </nav>
       <div>
         <%= if get_flash(@conn, :info) do %>
