@@ -13,7 +13,8 @@ defmodule Time1.Tasks.Task do
   @doc false
   def changeset(task, attrs) do
     task
-    |> cast(attrs, [:name, :hours, :worker_id])
-    |> validate_required([:name, :hours, :worker_id])
+    |> cast(attrs, [:name, :hours])
+    |> validate_number(:hours, less_than: 9)
+    |> validate_required([:name, :hours])
   end
 end

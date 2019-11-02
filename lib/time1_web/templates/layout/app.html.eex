@@ -15,13 +15,10 @@
         </div>
         <div class="col-4">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-	      <%= link( "Workers", to: Routes.worker_path(@conn, :index))%>
-            </li>
-	    <li class="nav-item active">
-	      <%= link( "Create Task", to: Routes.task_path(@conn, :new))%> 
-	      
-            </li>
+
+	      <%= link "Workers", to: Routes.worker_path(@conn, :index), class: "nav-link" %>
+	      <%= link "New Task", to: Routes.task_path(@conn, :new), class: "nav-link" %> 
+	      <%= link "All Task", to: Routes.task_path(@conn, :index), class: "nav-link" %> 
           </ul>
         </div>
         <div class="col-4 text-light">

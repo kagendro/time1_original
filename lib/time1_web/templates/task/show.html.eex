@@ -14,4 +14,4 @@
 
 </ul>
 
-<span><%= link "Back", to: Routes.task_path(@conn, :index) %></span>
+<span><%= link "See All Tasks", to: Routes.task_path(@conn, :index) %></span>
