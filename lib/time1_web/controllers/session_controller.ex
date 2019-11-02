@@ -5,8 +5,8 @@ defmodule Time1Web.SessionController do
     render(conn, "new.html")
   end
 
-  def create(conn, %{"email" => email}) do
-    user = Time1.Workers.get_worker_by_email(email)
+  def create(conn, %{"email" => email, "password" => password}) do
+    user = Time1.Workers.authenticate(email, password)
     if user do
       conn
       |> put_session(:user_id, user.id)

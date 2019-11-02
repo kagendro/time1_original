@@ -19,7 +19,8 @@ defmodule Time1Web.WorkerController do
       {:ok, worker} ->
         conn
         |> put_flash(:info, "Worker created successfully.")
-        |> redirect(to: Routes.worker_path(conn, :show, worker))
+        |> redirect(to: Routes.page_path(conn, :index))
+
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)

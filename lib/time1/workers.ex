@@ -43,6 +43,15 @@ defmodule Time1.Workers do
     Repo.get_by(Worker, email: email)
   end
 
+  def authenticate(email, pass) do
+    worker = Repo.get_by(Worker, email: email)
+    case Argon2.check_pass(worker, pass) do
+      {:ok, worker} -> worker
+      _ -> nil
+    end
+  end
+
+
 
   @doc """
   Creates a worker.
